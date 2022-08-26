@@ -126,8 +126,7 @@ class Evolution:
 		self.best_gene = g1
 		new_ai = []
 		for _ in range(len(self.AI)):
-			gene = crossover(g1, g2)
-			gene = mutate(gene)
+			gene = mutate(crossover(g1, g2))
 			ai = AI(arr, gene)
 			new_ai.append(ai)
 		self.AI = new_ai
