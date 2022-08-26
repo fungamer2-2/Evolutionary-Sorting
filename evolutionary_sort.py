@@ -2,6 +2,7 @@ import random, math
 
 MUTATION_CHANCE = 3
 TOTAL = 50000
+NUM_ELEMENTS = 15
 
 def rand_pair(length):
     i = random.randrange(length)
@@ -132,7 +133,7 @@ class Evolution:
             new_ai.append(ai)
         self.AI = new_ai
 
-arr = list(range(15))
+arr = list(range(NUM_ELEMENTS))
 random.shuffle(arr)
 
 print("Given array to sort: ")
