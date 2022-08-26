@@ -1,5 +1,5 @@
 # Evolutionary-Sorting
-An evolutionary algorithm tries to sort an array
+A genetic algorithm tries to sort an array
 
 The AI attempts to generate a network to sort a specific array in only `n` swaps<br />
 It generates 5 AIs for an initial population, each with randomly generated chromosomes (lists of network pairings of length `n`), runs the network, and assigns a fitness score based on the number of inversions (higher score = fewer inversions) <br />
