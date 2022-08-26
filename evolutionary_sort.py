@@ -1,9 +1,10 @@
 import random, math
 
-MUTATION_CHANCE = 6
-TOTAL = 50000
+TOTAL = 100000
 NUM_ELEMENTS = 15
 POPULATION_SIZE = 5
+
+MUTATION_CHANCE = 100 / NUM_ELEMENTS
 
 def rand_pair(length):
     i = random.randrange(length)
@@ -25,7 +26,7 @@ def make_genes(n):
     return [rand_pair(n) for _ in range(n)]    
 
 def mutate(genes):
-    return [(rand_pair(len(genes)) if random.randint(1, 100) <= MUTATION_CHANCE else gene) for gene in genes]
+    return [(rand_pair(len(genes)) if random.uniform(0, 100) <= MUTATION_CHANCE else gene) for gene in genes]
 
 def crossover(g1, g2):
     assert len(g1) == len(g2)
