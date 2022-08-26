@@ -21,8 +21,8 @@ def make_genes(n):
 
 MUTATION_CHANCE = 3
 
-def mutate(genes, n):
-	return [(rand_pair(n) if random.randint(1, 100) <= MUTATION_CHANCE else gene) for gene in genes]
+def mutate(genes):
+	return [(rand_pair(len(genes)) if random.randint(1, 100) <= MUTATION_CHANCE else gene) for gene in genes]
 
 def crossover(g1, g2):
 	assert len(g1) == len(g2)
@@ -127,7 +127,7 @@ class Evolution:
 		new_ai = []
 		for _ in range(len(self.AI)):
 			gene = crossover(g1, g2)
-			gene = mutate(gene, len(self.arr))
+			gene = mutate(gene)
 			ai = AI(arr, gene)
 			new_ai.append(ai)
 		self.AI = new_ai
