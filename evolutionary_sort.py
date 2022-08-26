@@ -3,6 +3,7 @@ import random, math
 MUTATION_CHANCE = 3
 TOTAL = 50000
 NUM_ELEMENTS = 15
+POPULATION_SIZE = 5
 
 def rand_pair(length):
     i = random.randrange(length)
@@ -69,7 +70,7 @@ def merge(arr, temp_arr, left, mid, right):
         else: 
             # Inversion will occur. 
             temp_arr[k] = arr[j] 
-            inv_count += (mid-i + 1)
+            inv_count += (mid - i + 1)
             k += 1
             j += 1
 
@@ -114,7 +115,7 @@ class Evolution:
         
     def __init__(self, arr):
         self.arr = arr
-        self.AI = [AI(arr) for _ in range(5)]
+        self.AI = [AI(arr) for _ in range(POPULATION_SIZE)]
         self.best_gene = None
         
     def run(self):
