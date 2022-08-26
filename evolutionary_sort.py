@@ -1,5 +1,8 @@
 import random, math
 
+MUTATION_CHANCE = 3
+TOTAL = 50000
+
 def rand_pair(length):
     i = random.randrange(length)
     j = random.randrange(length)
@@ -18,8 +21,6 @@ def max_inversions(n):
 
 def make_genes(n):
     return [rand_pair(n) for _ in range(n)]    
-
-MUTATION_CHANCE = 3
 
 def mutate(genes):
     return [(rand_pair(len(genes)) if random.randint(1, 100) <= MUTATION_CHANCE else gene) for gene in genes]
@@ -138,8 +139,6 @@ print("Given array to sort: ")
 print(arr)
 
 evolve = Evolution(arr)
-
-TOTAL = 50000
 msg_interv = int(TOTAL ** 0.6)
 
 def print_time(t):
