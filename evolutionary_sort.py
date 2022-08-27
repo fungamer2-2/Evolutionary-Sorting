@@ -1,7 +1,7 @@
 import random, math
 
-TOTAL = 100000
-NUM_ELEMENTS = 15
+TOTAL = 500000
+NUM_ELEMENTS = 20
 POPULATION_SIZE = 5
 
 MUTATION_CHANCE = 100 / NUM_ELEMENTS
@@ -158,16 +158,16 @@ def print_time(t):
 
 import time
 
-runs = 0
+gens = 0
 start = time.time()
 for _ in range(TOTAL):
-    runs += 1
+    gens += 1
     evolve.run()
     if runs % msg_interv == 0:
         now = time.time()
         estimated_total = TOTAL * (now - start) / runs 
         remaining = round(estimated_total - (now - start))
-        print(f"Runs: {runs}/{TOTAL} | Approx. {print_time(remaining)} remaining")
+        print(f"Generations: {gens}/{TOTAL} | Approx. {print_time(remaining)} remaining")
 
 print("Test run:")
 print("Before:")
