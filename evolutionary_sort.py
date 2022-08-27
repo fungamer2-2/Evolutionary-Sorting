@@ -1,8 +1,8 @@
 import random, math
 
-TOTAL = 50000
+TOTAL = 1000
 NUM_ELEMENTS = 15
-POPULATION_SIZE = 5
+POPULATION_SIZE = 10
 
 MUTATION_CHANCE = 100 / NUM_ELEMENTS
 
@@ -102,7 +102,6 @@ class AI:
     def __init__(self, arr, genes=None):
         self.arr = arr[:]
         if not genes:
-            print("Generating genes...")
             genes = make_genes(len(arr))
         self.genes = genes
         
@@ -169,7 +168,7 @@ for _ in range(TOTAL):
         estimated_total = TOTAL * (now - start) / gens 
         remaining = round(estimated_total - (now - start))
         print(f"Generations: {gens}/{TOTAL} | Approx. {print_time(remaining)} remaining")
-
+		
 print("Test run:")
 print("Before:")
 print(arr)
