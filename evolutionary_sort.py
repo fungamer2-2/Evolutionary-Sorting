@@ -1,9 +1,10 @@
 import random, math
 
-TOTAL = 1000
-NUM_ELEMENTS = 15
+TOTAL = 5000
+NUM_ELEMENTS = 17
 POPULATION_SIZE = 10
 
+CROSSOVER_CHANCE = 80
 MUTATION_CHANCE = 100 / NUM_ELEMENTS
 
 def rand_pair(length):
@@ -130,7 +131,11 @@ class Evolution:
         self.best_gene = g1
         new_ai = []
         for _ in range(len(self.AI)):
-            gene = mutate(crossover(g1, g2))
+            if random.uniform(0, 100) < CROSSOVER_CHANCE:
+            	gene = crossover(g1, g2)
+            else:
+            	gene = random.choice((g1, g2))
+            gene = mutate(gene)
             ai = AI(arr, gene)
             new_ai.append(ai)
         self.AI = new_ai
